@@ -94,6 +94,7 @@ def getXML(obj, objname=None):
         dict: getXML_dict,
         list: getXML_list,
         tuple: getXML_list,
+        unicode: lambda obj, objname: getXML(obj.encode('utf-8'), objname)
         }
     if adapt.has_key(obj.__class__):
         return adapt[obj.__class__](obj, objname)
